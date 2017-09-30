@@ -1,5 +1,6 @@
 var express = require('express');
 var packageInfo = require('./package.json');
+require('./bot.js');
 
 var app = express();
 
