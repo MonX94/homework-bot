@@ -1,12 +1,15 @@
-var express = require("express");
-var app = express();
-app.use(express.logger());
+varvar express = require('express');
+var packageInfo = require('./package.json');
 
-app.get('/', function(request, response) {
-  response.send('Hello World!');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.json({ version: packageInfo.version });
 });
 
-var port = process.env.PORT || 5000;
-app.listen(port, function() {
-  console.log("Listening on " + port);
+var server = app.listen(process.env.PORT, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Web server started at http://%s:%s', host, port);
 });
