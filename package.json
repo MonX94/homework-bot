@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.16.1",
     "firebase": "^3.9.0",
     "node-telegram-bot-api": "^0.27.0"
   },
