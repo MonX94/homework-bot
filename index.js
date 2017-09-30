@@ -1,4 +1,4 @@
-varvar express = require('express');
+var express = require('express');
 var packageInfo = require('./package.json');
 
 var app = express();
