@@ -32,18 +32,18 @@ firebase.database().ref().once('value', (snapshot) => {
 					}
 				}
 				botResponse.sort((a, b) => {
-					return a[0][3] - b[0][3]
+					return a[0][3] - b[0][3] //Сортировка по времени урока
 				})
 				botResponseString = ''
 				for (var i = 0; i < botResponse.length; i++) {
-					botResponseString += botResponse[i][0][0];
+					botResponseString += botResponse[i][0][0]; //Это урок и расписание звонков
 					botResponseString += ", "
 					botResponseString += botResponse[i][0][1];
 					botResponseString += ", ДЗ: "
-					if (botResponse[i][0][2] != "") {
+					if (botResponse[i][0][2] != "") { //Проверка на наличие дз
 						botResponseString += botResponse[i][0][2];
 					} else {
-						botResponseString += "Нету, напишите в ВК - vk.com/monx94"
+						botResponseString += "Не знаю, если есть напишите в ВК - vk.com/monx94"
 					}
 					botResponseString += "\n";
 				}
@@ -56,5 +56,8 @@ firebase.database().ref().once('value', (snapshot) => {
 		bot.sendMessage(fromId, 'Привет! Я ДЗбот, скину тебе дз. Просто напиши "/расписание" и после него напиши день, на который ты хочешь получить дз. \n Например, "/расписание вторник"')
 	});
 });
-
+bot.onText(/пидрило/, function (msg, match) {
+	var fromId = msg.from.id;
+	bot.sendMessage(fromId, 'Прив, пидрило, я уже соскучился')
+});
 // /расписание %день% - расписание на день
